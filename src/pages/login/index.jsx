@@ -25,8 +25,6 @@ const LoginPage = () => {
                 } else {
                     sessionStorage.setItem("token", response.token);
                 }
-
-                alert("Login successful!");
                 navigate("/dashboard");
             }
         } catch (err) {

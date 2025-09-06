@@ -1,9 +1,42 @@
+import { CheckCircle, Info, Users, LifeBuoy, Home, Menu } from "lucide-react";
 import Button from "../../components/Button";
-import { CheckCircle, Info, Users, LifeBuoy, Home } from "lucide-react"; // Icons for features
+import { useState } from "react";
+import { Link } from "react-router-dom"; // Assuming you're using React Router for navigation
 
 const LandingPage = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
         <div>
+            {/* Navbar */}
+            <nav className="bg-gradient-to-b from-[#1e3c72] to-[#2a5298] sticky top-0 text-white p-4">
+                <div className="container mx-auto flex lg:px-16 justify-between items-center">
+                    {/* Logo */}
+                    <img src="logo.png" alt="Logo" className="w-20" />
+                    {/* Desktop Menu */}
+                    <div className="hidden lg:flex space-x-6">
+                        <Link to="/" className="hover:text-blue-300">Home</Link>
+    
+                        <Link to="/login" className="hover:text-blue-300">Login</Link>
+                        <Link to="/signup" className="hover:text-blue-300">Sign Up</Link>
+                    </div>
+                    {/* Mobile Menu Icon */}
+                    <div className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <Menu className="w-6 h-6" />
+                    </div>
+                </div>
+
+                {/* Mobile Menu */}
+                {isMobileMenuOpen && (
+                    <div className="lg:hidden  text-white py-4 space-y-4">
+                        <Link to="/" className="block text-center hover:text-blue-300">Home</Link>
+                       
+                        <Link to="/login" className="block text-center hover:text-blue-300">Login</Link>
+                        <Link to="/signup" className="block text-center hover:text-blue-300">Sign Up</Link>
+                    </div>
+                )}
+            </nav>
+
             {/* Hero Section */}
             <section className="bg-gradient-to-b from-[#1e3c72] to-[#2a5298] text-white">
                 <div className="container mx-auto py-16 px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-between">
@@ -29,7 +62,7 @@ const LandingPage = () => {
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-8">
                     <h2 className="text-3xl font-semibold text-center mb-12">Our Features</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:px-[200px] gap-8">
                         {/* Feature 1 */}
                         <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                             <Home className="w-12 h-12 text-blue-500 mb-4" />
@@ -70,8 +103,8 @@ const LandingPage = () => {
             <section className="bg-blue-100 py-16">
                 <div className="container mx-auto px-8 text-center">
                     <h2 className="text-3xl font-semibold text-blue-700 mb-4">About Us</h2>
-                    <p className="text-lg text-gray-700 mb-6">
-                        Our platform is designed to help you make meaningful progress in achieving your goals with cutting-edge tools and personalized strategies.
+                    <p className="text-lg text-gray-700 mb-6 lg:px-[300px]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In natus amet quae aliquid beatae nisi esse eaque et! Odit repellendus mollitia accusantium earum neque illum, maxime fugiat rem. Quibusdam, suscipit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi perspiciatis architecto, non accusantium molestias maiores dolorum dolore at voluptate libero, ad facilis esse ratione. Expedita ullam nam eum iure!
                     </p>
                     <Button className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700">
                         Learn More

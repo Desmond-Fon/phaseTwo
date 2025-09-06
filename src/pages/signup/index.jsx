@@ -26,7 +26,6 @@ const SignUpPage = () => {
         try {
             const response = await register(name, email, password);
             if (response?.token) {
-                alert("Signup successful!");
                 navigate("/login");
             }
         } catch (err) {
