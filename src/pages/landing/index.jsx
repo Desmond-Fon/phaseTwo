@@ -1,5 +1,5 @@
-import Button from "../../components/Button"; // Assuming Button component is in this path
-// import InputField from "../../components/InputField"; // Assuming InputField is available
+import { CheckCircle, Info, Users, LifeBuoy, Home } from "lucide-react";
+import Button from "../../components/Button";
 
 const LandingPage = () => {
     return (
@@ -8,8 +8,8 @@ const LandingPage = () => {
             <section className="bg-gradient-to-b from-[#1e3c72] to-[#2a5298] text-white">
                 <div className="container mx-auto py-16 px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-between">
                     <div className="max-w-lg">
-                        <img src="logo.png" alt="Logo" className="mb-4" />
-                        <h1 className="text-4xl font-semibold mb-4">
+                        <img src="logo.png" alt="Logo" className="mb-4 w-40" />
+                        <h1 className="text-4xl lg:text-5xl font-semibold mb-4 tracking-tight leading-tight">
                             Your Next Big Step Starts Here
                         </h1>
                         <p className="text-lg mb-6">
@@ -28,35 +28,35 @@ const LandingPage = () => {
             {/* Features Section */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-8">
-                    <h2 className="text-3xl font-semibold text-center mb-12">Features</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-12">Our Features</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Feature 1 */}
-                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-                            <img src="feature-icon1.png" alt="Feature Icon 1" className="w-12 h-12 mb-4" />
+                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <Home className="w-12 h-12 text-blue-500 mb-4" />
                             <h3 className="text-xl font-semibold mb-2">Feature One</h3>
                             <p className="text-center text-gray-600">
                                 Brief description of feature one. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </p>
                         </div>
                         {/* Feature 2 */}
-                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-                            <img src="feature-icon2.png" alt="Feature Icon 2" className="w-12 h-12 mb-4" />
+                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <Users className="w-12 h-12 text-blue-500 mb-4" />
                             <h3 className="text-xl font-semibold mb-2">Feature Two</h3>
                             <p className="text-center text-gray-600">
                                 Brief description of feature two. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </p>
                         </div>
                         {/* Feature 3 */}
-                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-                            <img src="feature-icon3.png" alt="Feature Icon 3" className="w-12 h-12 mb-4" />
+                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <LifeBuoy className="w-12 h-12 text-blue-500 mb-4" />
                             <h3 className="text-xl font-semibold mb-2">Feature Three</h3>
                             <p className="text-center text-gray-600">
                                 Brief description of feature three. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </p>
                         </div>
                         {/* Feature 4 */}
-                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-                            <img src="feature-icon4.png" alt="Feature Icon 4" className="w-12 h-12 mb-4" />
+                        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <Info className="w-12 h-12 text-blue-500 mb-4" />
                             <h3 className="text-xl font-semibold mb-2">Feature Four</h3>
                             <p className="text-center text-gray-600">
                                 Brief description of feature four. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

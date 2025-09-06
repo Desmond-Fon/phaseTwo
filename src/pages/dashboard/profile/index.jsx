@@ -8,6 +8,7 @@ const ProfilePage = () => {
     useEffect(() => {
         async function loadUserProfile() {
             const data = await fetchUserProfile();
+            console.log(data)
             setUser(data);
         }
 
@@ -19,8 +20,8 @@ const ProfilePage = () => {
             <h2 className="text-3xl font-semibold mb-6">Profile</h2>
             {user && (
                 <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-lg font-semibold">{user.name}</h3>
-                    <p>Email: {user.email}</p>
+                    <h3 className="text-lg font-semibold">{user?.name?.title} {user?.name?.first} {user?.name?.last}</h3>
+                    <p>Email: {user?.email}</p>
                 </div>
             )}
         </DashboardLayout>

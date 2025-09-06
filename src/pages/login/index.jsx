@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import InputField from "../../components/InputField.";
-import { login } from "../../utils/api"; // Assuming you have the login function in utils/api
+import { login } from "../../utils/api";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ const LoginPage = () => {
     const [rememberMe, setRememberMe] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,16 +19,15 @@ const LoginPage = () => {
 
         try {
             const response = await login(email, password);
-            if (response?.access_token) {
-                // Save token or session (if rememberMe is true)
+            if (response?.token) {
                 if (rememberMe) {
-                    localStorage.setItem("access_token", response.access_token);
+                    localStorage.setItem("token", response.token);
                 } else {
-                    sessionStorage.setItem("access_token", response.access_token);
+                    sessionStorage.setItem("token", response.token);
                 }
 
                 alert("Login successful!");
-                navigate("/dashboard"); // Redirect to dashboard or home page after successful login
+                navigate("/dashboard");
             }
         } catch (err) {
             console.log(err)
@@ -44,7 +43,6 @@ const LoginPage = () => {
                 <h2 className="text-center text-2xl font-bold text-blue-600 mb-6">Login</h2>
 
                 <form onSubmit={handleSubmit}>
-                    {/* Email Input */}
                     <div className="mb-4">
                         <InputField
                             label="Email"
@@ -56,7 +54,6 @@ const LoginPage = () => {
                         />
                     </div>
 
-                    {/* Password Input */}
                     <div className="mb-4">
                         <InputField
                             label="Password"
@@ -68,7 +65,6 @@ const LoginPage = () => {
                         />
                     </div>
 
-                    {/* Remember Me Checkbox */}
                     <div className="mb-4 flex items-center">
                         <input
                             type="checkbox"
@@ -79,10 +75,8 @@ const LoginPage = () => {
                         <label className="text-sm text-gray-700">Remember me</label>
                     </div>
 
-                    {/* Error Message */}
                     {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
 
-                    {/* Submit Button */}
                     <Button
                         type="submit"
                         disabled={loading}
@@ -92,7 +86,6 @@ const LoginPage = () => {
                     </Button>
                 </form>
 
-                {/* Forgot Password Link */}
                 <div className="text-center mt-4">
                     <a href="/forgot-password" className="text-sm text-blue-600 hover:underline">
                         Forgot Password?

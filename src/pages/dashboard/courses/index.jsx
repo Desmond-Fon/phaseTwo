@@ -22,16 +22,23 @@ const CoursesPage = () => {
                 {courses.map((course) => (
                     <div
                         key={course.id}
-                        className="bg-white p-6 rounded-lg shadow-md cursor-pointer"
+                        className="bg-white p-6 rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105 hover:shadow-xl"
                     >
-                        <Link to={`/courses/${course.id}`}>
+                        <Link to={`/dashboard/courses/${course.id}`}>
+                            {/* Course Image */}
                             <img
                                 src={course.image}
                                 alt={course.title}
-                                className="w-full h-40 object-cover mb-4 rounded-lg"
+                                className="w-full h-40 object-contain rounded-lg mb-4 transition-all duration-300 ease-in-out hover:opacity-90"
                             />
-                            <h3 className="text-lg font-semibold">{course.title}</h3>
-                            <p>{course.description}</p>
+
+                            {/* Course Title */}
+                            <h3 className="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-300 ease-in-out mb-2">
+                                {course.title}
+                            </h3>
+
+                            {/* Course Description */}
+                            <p className="text-sm text-gray-600 line-clamp-3">{course.description}</p>
                         </Link>
                     </div>
                 ))}

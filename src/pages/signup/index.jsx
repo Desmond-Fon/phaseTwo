@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import { InputField, Button, Alert } from "./components"; // Import components from your project
-import { useNavigate } from "react-router-dom"; // React Router for navigation
+import { useNavigate } from "react-router-dom";
 import InputField from "../../components/InputField.";
 import Button from "../../components/Button";
 import { register } from "../../utils/api";
@@ -25,11 +24,10 @@ const SignUpPage = () => {
         setError(null);
 
         try {
-            const response = await register({ name, email, phone, password });
-            if (response?.access_token) {
-                // Handle successful signup (e.g., redirect or save token)
+            const response = await register(name, email, password);
+            if (response?.token) {
                 alert("Signup successful!");
-                navigate("/login"); // Redirect to login page after successful signup
+                navigate("/login");
             }
         } catch (err) {
             console.log(err)
@@ -45,57 +43,62 @@ const SignUpPage = () => {
                 <h2 className="text-center text-2xl font-bold text-blue-600 mb-6">Sign Up</h2>
 
                 <form onSubmit={handleSubmit}>
-                    {/* Full Name */}
-                    <InputField
-                        label="Full Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Enter your full name"
-                        required
-                    />
+                    <div className="mb-4">
+                        <InputField
+                            label="Full Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Enter your full name"
+                            required
+                        />
+                    </div>
 
-                    {/* Email */}
-                    <InputField
-                        label="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
-                        required
-                    />
+                    <div className="mb-4">
+                        <InputField
+                            label="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your email"
+                            required
+                        />
+                    </div>
 
-                    {/* Phone Number */}
-                    <InputField
-                        label="Phone Number"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Enter your phone number"
-                        required
-                    />
+                    <div className="mb-4">
+                        <InputField
+                            label="Phone Number"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            placeholder="Enter your phone number"
+                            required
+                        />
+                    </div>
 
-                    {/* Password */}
-                    <InputField
-                        label="Password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter your password"
-                        required
-                    />
+                    <div className="mb-4">
 
-                    {/* Confirm Password */}
-                    <InputField
-                        label="Confirm Password"
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        placeholder="Confirm your password"
-                        required
-                    />
+                        <InputField
+                            label="Password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Enter your password"
+                            required
+                        />
 
-                    {/* Error message */}
+                    </div>
+
+                    <div className="mb-4">
+                        <InputField
+                            label="Confirm Password"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            placeholder="Confirm your password"
+                            required
+                        />
+                    </div>
+
                     {error && <Alert message={error} type="error" />}
 
-                    {/* Submit Button */}
                     <Button
                         type="submit"
                         disabled={loading}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="w-60 bg-blue-700 text-white min-h-screen p-4">
+    <div className=" bg-blue-700 text-white min-h-screen p-4">
       <h1 className="text-2xl font-bold mb-8">Dashboard</h1>
       <ul>
         <li className="mb-6">
