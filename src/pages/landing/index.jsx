@@ -1,5 +1,5 @@
-import { CheckCircle, Info, Users, LifeBuoy, Home } from "lucide-react";
 import Button from "../../components/Button";
+import { CheckCircle, Info, Users, LifeBuoy, Home } from "lucide-react"; // Icons for features
 
 const LandingPage = () => {
     return (
@@ -7,8 +7,8 @@ const LandingPage = () => {
             {/* Hero Section */}
             <section className="bg-gradient-to-b from-[#1e3c72] to-[#2a5298] text-white">
                 <div className="container mx-auto py-16 px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-between">
-                    <div className="max-w-lg">
-                        <img src="logo.png" alt="Logo" className="mb-4 w-40" />
+                    <div className="max-w-lg text-center lg:text-left">
+                        <img src="logo.png" alt="Logo" className="mb-4 w-40 mx-auto lg:mx-0" />
                         <h1 className="text-4xl lg:text-5xl font-semibold mb-4 tracking-tight leading-tight">
                             Your Next Big Step Starts Here
                         </h1>
@@ -20,7 +20,7 @@ const LandingPage = () => {
                         </Button>
                     </div>
                     <div className="w-full lg:w-1/2 mt-10 lg:mt-0">
-                        <img src="hero-banner.png" alt="Illustration" className="w-full" />
+                        <img src="hero-banner.png" alt="Illustration" className="w-full object-cover" />
                     </div>
                 </div>
             </section>
@@ -81,17 +81,17 @@ const LandingPage = () => {
 
             {/* Footer Section */}
             <footer className="bg-blue-600 text-white py-8">
-                <div className="container mx-auto px-8 flex justify-between items-center">
-                    <div>
+                <div className="container mx-auto px-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center flex-wrap">
+                    <div className="w-full text-center lg:text-left lg:w-auto">
                         <h3 className="text-lg font-semibold">Company Name</h3>
                         <p className="text-sm text-gray-200">© 2022 All Rights Reserved.</p>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex text-center lg:text-left flex-wrap gap-6 mt-4 lg:mt-0">
                         <a href="#" className="text-gray-200 hover:text-white">About</a>
                         <a href="#" className="text-gray-200 hover:text-white">Privacy Policy</a>
                         <a href="#" className="text-gray-200 hover:text-white">Contact</a>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex text-center lg:text-left gap-4 mt-4 lg:mt-0">
                         <a href="#" className="text-gray-200 hover:text-white">Facebook</a>
                         <a href="#" className="text-gray-200 hover:text-white">Twitter</a>
                         <a href="#" className="text-gray-200 hover:text-white">Instagram</a>
