@@ -1,4 +1,3 @@
-// components/Button.js
 const Button = ({
   onClick,
   children,

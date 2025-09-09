@@ -1,4 +1,3 @@
-// components/CourseCard.js
 const CourseCard = ({ title, description, price }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">

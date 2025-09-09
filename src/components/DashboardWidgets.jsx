@@ -6,13 +6,11 @@ const DashboardWidgets = () => {
     const [userProfile, setUserProfile] = useState(null);
 
     useEffect(() => {
-        // Fetching courses count
         async function loadCourses() {
             const courses = await fetchCourses();
             setCoursesCount(courses.length);
         }
 
-        // Fetching assignments status
         async function loadAssignments() {
             const assignments = await fetchAssignments();
             const completed = assignments.filter((assignment) => assignment.completed).length;
@@ -20,7 +18,6 @@ const DashboardWidgets = () => {
             setAssignmentsCount({ completed, pending });
         }
 
-        // Fetching user profile
         async function loadUserProfile() {
             const profile = await fetchUserProfile();
             setUserProfile(profile);

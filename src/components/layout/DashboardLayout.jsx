@@ -26,12 +26,10 @@ const DashboardLayout = ({ children }) => {
 
     return (
         <div className="flex h-screen overflow-hidden">
-            {/* Sidebar */}
             <div className={`lg:w-[15%] w-full bg-blue-700 text-white p-4 lg:flex flex-col items-start ${isSidebarOpen ? "block" : "hidden"} lg:block`}>
                 <Sidebar />
             </div>
 
-            {/* Main content */}
             <div className="flex flex-col w-full lg:w-[85%] mt-4">
                 <div className="px-4">
                     <TopBar toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
